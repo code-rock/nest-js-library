@@ -19,11 +19,11 @@ export class BooksControllerController {
         return this.booksService.findAll()
     }
     @Post()
-    async updateBook(id: string, bookDto: Book): Promise<void> {
-        this.booksService.update(bookDto);
+    async updateBook(@Body() book: Book): Promise<void> {
+        this.booksService.update(book);
     }
     @Post()
-    async deleteBook(id: string) {
+    async deleteBook(@Body() id: string) {
         this.booksService.delete(id);
     }
 }
