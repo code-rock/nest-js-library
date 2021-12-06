@@ -10,7 +10,7 @@ export class Book {
     title: string;
 
     @Prop()
-    authors: number;
+    authors: string;
 
     @Prop()
     description: string;
@@ -19,7 +19,7 @@ export class Book {
     favorite: string;
 
     @Prop()
-    fileCover: number;
+    fileCover: string;
 
     @Prop()
     fileName: string;
