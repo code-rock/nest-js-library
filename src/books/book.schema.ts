@@ -16,19 +16,19 @@ export class Book {
     description: string;
 
     @Prop()
-    favorite: string;
+    favorite?: string;
 
     @Prop()
-    fileCover: string;
+    fileCover?: string;
 
     @Prop()
-    fileName: string;
+    fileName?: string;
 
     @Prop()
-    fileBook: string;
+    fileBook?: string;
 
     @Prop()
-    reviews: BookReview[];
+    reviews?: BookReview[];
 }
 
 export const BookSchema = SchemaFactory.createForClass(Book);
