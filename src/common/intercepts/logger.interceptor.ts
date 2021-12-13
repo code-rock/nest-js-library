@@ -13,7 +13,6 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
     intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-        console.log('New request!');
         return next.handle().pipe(
                 map((data) => {
                     return {

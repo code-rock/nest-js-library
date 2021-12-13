@@ -3,7 +3,6 @@ import { PipeTransform, Injectable, ArgumentMetadata, BadRequestException } from
 @Injectable() 
 export class BookAuthorSurnamePipe implements PipeTransform<any, any> {
     transform(value: any, metadata: ArgumentMetadata): any {
-        console.log(value, 'value')
         if (typeof value === 'object') {
             if (value.hasOwnProperty("authors")) {
                 const fio = value.authors.split(/\.| /);
