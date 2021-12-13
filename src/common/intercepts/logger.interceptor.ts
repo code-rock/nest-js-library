@@ -16,7 +16,6 @@ export class LoggingInterceptor implements NestInterceptor {
         console.log('New request!');
         return next.handle().pipe(
                 map((data) => {
-                    console.log(data, 'data')
                     return {
                         data,
                         status: 'success',
