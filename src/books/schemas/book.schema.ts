@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from'@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { BookReview } from './book-review.interface';
+import { BookReview, BookReviewSchema } from './book-review.schema';
 
 export type BookDocument = Book & Document;
 
@@ -27,7 +27,7 @@ export class Book {
     @Prop()
     fileBook: string;
 
-    @Prop()
+    @Prop({ type: [{ type: BookReviewSchema, ref: BookReview.name }]})
     reviews: BookReview[];
 }
 

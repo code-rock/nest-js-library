@@ -1,13 +1,13 @@
 import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { BookDocument, Book } from './book.schema';
+import { Book, BookSchema, BookDocument } from './schemas/book.schema';
 
 @Injectable()
-export class BooksServiceService {
+export class BooksService {
     constructor(@InjectModel(Book.name) private bookModel: Model<BookDocument>) {}
     
-    async create(book: Book) {
+    async create(book: Book): Promise<Book> {
         const createdBook = new this.bookModel(book);
         return createdBook.save();
     }
