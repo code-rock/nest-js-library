@@ -1,5 +1,5 @@
 import { Body, UsePipes, Param, Controller, Get, Post, Put, Delete, UseInterceptors } from '@nestjs/common';
-import { BooksService } from './books-service.service';
+import { BooksService } from './books.service';
 import { CreateBookDto } from './dto/create-book.dto';
 import { BookAuthorSurnamePipe } from './pipes/book-review-validation.pipe';
 import { ValidationPipe } from './pipes/validation.pipe';
