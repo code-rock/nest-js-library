@@ -11,12 +11,15 @@ export class BooksService {
         const createdBook = new this.bookModel(book);
         return createdBook.save();
     }
+
     async findAll(): Promise<Book[]> {
         return this.bookModel.find().exec();
     }
+
     async findById(id: string): Promise<Book> {
         return this.bookModel.findById(id);
     }
+    
     async update(id: string, book: Book) {
         return this.bookModel.findByIdAndUpdate(id, book, {
             new: true,
@@ -24,6 +27,7 @@ export class BooksService {
             context: 'query'
         });
     }
+
     async delete(id: string) {
         return this.bookModel.deleteOne({ _id: id });
     }
