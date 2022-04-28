@@ -30,13 +30,13 @@ export class BooksController {
     @Put(':id')
     @UseInterceptors(NotFoundInterceptor)
     async updateBook(@Param('id') id: string, @Body() book: Book, @Res() res: Response) {
-        const updated = this.booksService.update(id, book);
+        const updated = await this.booksService.update(id, book);
         res.status(HttpStatus.OK).json(updated);
     }
 
     @Delete('/delete/:id')
     async deleteBook(@Param() id: string, @Res() res: Response) {
-        this.booksService.delete(id);
+        await this.booksService.delete(id);
         res.status(HttpStatus.OK).json('ok');
     }
 }

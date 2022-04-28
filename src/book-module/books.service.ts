@@ -34,14 +34,9 @@ export class BooksService {
         return info.val()
     }
     async update(id: string, book: Book) {
-        await this.db.ref('books').child(id).update(book)
+        return await this.db.ref('books').child(id).update(book)
     }
     async delete(id: string) {
-        try {
-            await this.db.ref('books').child(id).remove()
-            return 'ok'
-        } catch(e) {
-            return undefined
-        }
+        return await this.db.ref('books').child(id).remove()
     }
 }
