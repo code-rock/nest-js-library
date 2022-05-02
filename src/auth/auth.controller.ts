@@ -23,7 +23,7 @@ export class AuthController {
     }
 
     @Post('/login')
-    async createBook(@Body() body: { name: string, email: string, password: string }, @Res() res) {
+    async login(@Body() body: { name: string, email: string, password: string }, @Res() res) {
         await this.authService.login(body)
             .then(
                 (sessionCookie) => {
@@ -38,7 +38,7 @@ export class AuthController {
     }
 
     @Post('/signup')
-    async updateBook(@Body() body: { name: string, email: string, password: string }, @Res() res) {
+    async signup(@Body() body: { name: string, email: string, password: string }, @Res() res) {
         const signup = await this.authService.signup(body);
 
         signup.then((userRecord) => {
